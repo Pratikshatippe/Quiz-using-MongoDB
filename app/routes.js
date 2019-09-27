@@ -16,7 +16,8 @@ module.exports = (app, col) => {
         console.log("hello");
         res.send('hello');
         col.findOne({test_id: 1}, function(err, document) {
-            console.log(document.q0);
+            console.log(document);
+            res.send(document);
           });
 
     //    const val = col.findOne({},{"q1.question":1}); 
