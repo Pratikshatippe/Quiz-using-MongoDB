@@ -13,16 +13,9 @@ module.exports = (app, col) => {
     });
 
     app.get("/api", (req, res) => {
-        console.log("hello");
-        res.send('hello');
-        col.findOne({test_id: 1}, function(err, document) {
+        col.findOne({test_id:1}, function(err, document) {
             console.log(document);
             res.send(document);
-          });
-
-    //    const val = col.findOne({},{"q1.question":1}); 
-    //        res.send(val);
-    //        console.log(val);
-         
+          });     
     });
 }
