@@ -13,9 +13,14 @@ module.exports = (app, col) => {
     });
 
     app.get("/api", (req, res) => {
-        col.findOne({test_id:1}, function(err, document) {
-            console.log(document.q1);
-            res.send(document);
-          });     
+        col.find({}).toArray(function (err, result) {
+            if (err)
+                console.log(err + " this error has occured");
+            else {
+                 res.status(200).send(result);
+                // res.send(result.question);
+               console.log(result);
+            }
+        });     
     });
 }
