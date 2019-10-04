@@ -64,7 +64,11 @@
     
  }
  #mail{
-   border-color: #1A237E;
+    border-radius: 13px;
+    border-color: var(--color-2);
+ }
+ .topic_submit{
+   border-color: var(--color-2);
    border-radius: 10px;
  }
  .btn{

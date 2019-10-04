@@ -1,24 +1,36 @@
 let currentQuestion = -1;
 let answer = '';
 let score = 0;
-let arr=[];
+let arrStore=[];
 let correctAns;
 let tempAns;
 let email;
-
+// fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
        url:'http://localhost:8100/api',
    }).done(function(data) {
-       getNextQues(data);
+       getQues(data);
        $('#next').click(function(){
-           getNextQues(data);
+           getQues(data);
        });
+       $('#submit').click(function(){
+           $('#score').show();
+           $('#next,#submit,.ans,.que').hide();
+        for(let i=0;i<arrStore.length;i++){
+            if((data[i].ans)=== arrStore[i]){
+                score++;
+            }
+        }
+        console.log(score);
+        document.getElementById('score').innerHTML = score;
+    });
     }); 
 })
-function getNextQues(data){
+// Display data 
+function getQues(data){
        if(currentQuestion+1 < 10){
-           currentQuestion += 1;
+           currentQuestion++;
            $('#ques-div').text(data[currentQuestion].question);
            $('#option1').text(data[currentQuestion].options[0]);
            $('#option2').text(data[currentQuestion].options[1]);
@@ -27,34 +39,23 @@ function getNextQues(data){
            correctAns = data[currentQuestion].answer;
        }
 }
-
+// Store selected answer in array
 $('.checkAnswer').click(function(){
-   tempAns = $(this).index();
-   arr.push(tempAns);
-   console.log(arr);
+   tempAns = $(this).text();
+   arrStore.push(tempAns);
+//    console.log(arrStore);
 });
-$('#submit').click(function(){
-    $('.exam-online').hide();
-    $('#result-div').show();
-    $('#next,#prev,#submit').hide();
-    for(let i=0;i<arr.length;i++){
-        console.log("bye");
-        if(parseInt(data[i].answer)=== arr[i]){
-            score+=1;
-            console.log("hi");
-        }
-    }
-    console.log("score");
-    document.getElementById('score').innerHTML = score;
-});
-function showMail(){
+
+// store email into mongodb database
+$(".topic_submit").click(function() {  
+    var topic = $("#mail").val();
     console.log("here");
     $.ajax({
         type: "POST",
         dataType: "text",
         url: "http://localhost:8100/",
         data:{
-            'email':email
+            'email': topic
         },
         success: function(data){
            result=data;
@@ -66,6 +67,6 @@ function showMail(){
             console.log(err);
         }
     });
-}
+});
 
 
