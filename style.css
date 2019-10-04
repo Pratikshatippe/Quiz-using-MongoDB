@@ -166,38 +166,10 @@
     color: var(--color-3);
     font-family: sans-serif;
  }
- .greet{
-    height:20vh;
-    width: 97vw;
-    font-size: 3em;
-    align-items: center;
-    justify-content: center;
+ .displayScore{
     display: flex;
- }
- .score{
-    height:20vh;
-    width: 97vw;
-    font-size: 2em;
-    align-items: center;
     justify-content: center;
-    display: flex;
+    align-content: center;
+    height: 20vh;
  }
- .result{
-    height:20vh;
-    width: 97vw;
-    font-size: 3em;
-    align-items: center;
-    justify-content: center;
-    display: flex;
- }
- .show{
- height:20vh;
- width: 97vw;
- font-size: 2em;
- align-items: center;
- justify-content: center;
- text-align: center;
- }
- .output{
- font-family: var(--font-family-1);
- }
+ 

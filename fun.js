@@ -15,7 +15,7 @@ $(document).ready(function(){
            getQues(data);
        });
        $('#submit').click(function(){
-           $('#score').show();
+           $('.displayScore').show();
            $('#next,#submit,.ans,.que').hide();
         for(let i=0;i<arrStore.length;i++){
             if((data[i].ans)=== arrStore[i]){
@@ -29,7 +29,7 @@ $(document).ready(function(){
 })
 // Display data 
 function getQues(data){
-       if(currentQuestion+1 < 10){
+       if(currentQuestion+1 <= 10){
            currentQuestion++;
            $('#ques-div').text(data[currentQuestion].question);
            $('#option1').text(data[currentQuestion].options[0]);
