@@ -1,4 +1,4 @@
-let currentQuestion = -1;
+let currentQuestion = 0;
 let answer = '';
 let score = 0;
 let arrStore=[];
@@ -29,14 +29,15 @@ $(document).ready(function(){
 })
 // Display data 
 function getQues(data){
-       if(currentQuestion+1 <= 10){
-           currentQuestion++;
+    
+       if(currentQuestion < 9){  
            $('#ques-div').text(data[currentQuestion].question);
            $('#option1').text(data[currentQuestion].options[0]);
            $('#option2').text(data[currentQuestion].options[1]);
            $('#option3').text(data[currentQuestion].options[2]);
            $('#option4').text(data[currentQuestion].options[3]);
            correctAns = data[currentQuestion].answer;
+           currentQuestion++;
        }
 }
 // Store selected answer in array
