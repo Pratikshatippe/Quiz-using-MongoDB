@@ -91,7 +91,6 @@
  }
  .header{
     height:10vh;
-    width:85vw;
     margin: 3vw;
  }
  .uni{
@@ -103,6 +102,7 @@
     align-items: center;
     background-color: var(--color-2);
     border-radius: 40px;
+    width:85vw;
  }
  .home{
     align-items: center;

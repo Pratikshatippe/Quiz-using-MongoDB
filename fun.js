@@ -1,67 +1,67 @@
 let currentQuestion = 0;
-let answer = '';
 let score = 0;
 let arrStore=[];
 let correctAns;
-let tempAns;
-let email;
+let answer;
+let main;
 // fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
        url:'http://localhost:8100/api',
    }).done(function(data) {
-       getQues(data);
+       main = data;
+       getQues(main);
        $('#next').click(function(){
-           getQues(data);
-       });
-       $('#submit').click(function(){
-           $('.displayScore').show();
-           $('#next,#submit,.ans,.que').hide();
-        for(let i=0;i<arrStore.length;i++){
-            if((data[i].ans)=== arrStore[i]){
-                score++;
-            }
-        }
-        console.log(score);
-        document.getElementById('score').innerHTML = score;
-    });
-    }); 
+           getQues(main);
+       }); 
 })
 // Display data 
-function getQues(data){
+function getQues(main){
     
        if(currentQuestion < 9){  
-           $('#ques-div').text(data[currentQuestion].question);
-           $('#option1').text(data[currentQuestion].options[0]);
-           $('#option2').text(data[currentQuestion].options[1]);
-           $('#option3').text(data[currentQuestion].options[2]);
-           $('#option4').text(data[currentQuestion].options[3]);
-           correctAns = data[currentQuestion].answer;
+           $('#ques-div').text(main[currentQuestion].question);
+           $('#option1').text(main[currentQuestion].options[0]);
+           $('#option2').text(main[currentQuestion].options[1]);
+           $('#option3').text(main[currentQuestion].options[2]);
+           $('#option4').text(main[currentQuestion].options[3]);
+           correctAns = main[currentQuestion].answer;
            currentQuestion++;
        }
 }
 // Store selected answer in array
 $('.checkAnswer').click(function(){
-   tempAns = $(this).text();
-   arrStore.push(tempAns);
+   answer = $(this).text();
+   arrStore.push(answer);
 //    console.log(arrStore);
+});
+$('#submit').click(function(){
+    $('.displayScore').show();
+    $('#next,#submit,.ans,.que').hide();
+ for(let i=0;i<arrStore.length;i++){
+     if((main[i].ans)=== arrStore[i]){
+         score++;
+     }
+ }
+ console.log(score);
+ document.getElementById('score').innerHTML = score;
+});
 });
 
 // store email into mongodb database
 $(".topic_submit").click(function() {  
-    var topic = $("#mail").val();
+    var emailStore = $("#mail").val();
     console.log("here");
     $.ajax({
         type: "POST",
         dataType: "text",
         url: "http://localhost:8100/",
         data:{
-            'email': topic
+            'email': emailStore
         },
         success: function(data){
            result=data;
            console.log(result);
-           getNextQues();
+           getQues();
            console.log(result[0].question);
         },
         error:function(err){
