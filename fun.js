@@ -24,6 +24,7 @@ function getQues(main){
            $('#option2').text(main[currentQuestion].options[1]);
            $('#option3').text(main[currentQuestion].options[2]);
            $('#option4').text(main[currentQuestion].options[3]);
+           $('.displayScore').hide();
            correctAns = main[currentQuestion].answer;
            currentQuestion++;
        }
