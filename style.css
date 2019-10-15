@@ -165,5 +165,12 @@
     color: var(--color-3);
     font-family: sans-serif;
  }
- 
+ .score,.greet,.emoji{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .greet{
+    color: var(--color-6);
+ }
  
