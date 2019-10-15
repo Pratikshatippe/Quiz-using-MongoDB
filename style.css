@@ -165,10 +165,5 @@
     color: var(--color-3);
     font-family: sans-serif;
  }
- .score,.greet{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 20vh;
- }
+ 
  
