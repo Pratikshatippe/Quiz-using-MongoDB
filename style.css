@@ -60,16 +60,19 @@
     align-items: center;
     
  }
- .user,.pwd{
+ .username,.password{
+    height: 10vh;
+   align-items: center;
+   display: flex;
+   justify-content: center;
+ }
+ /* .user,.pwd{
    height:8vh;
     align-items: center;
     display: flex;
     justify-content: center;
- }
+ } */
  .authusername,.authpassword{
-    align-items: center;
-    display: flex;
-    justify-content: center;
     border-radius: 10px;
     border-color: var(--color-1);
  }
@@ -93,6 +96,17 @@
     align-items: center;
    justify-content: center;
    display:flex; 
+ }
+ .login{
+    height: 10vh;
+    align-items: center;
+   justify-content: center;
+   display:flex; 
+ }
+ .loginbtn{
+    width:300px;
+    height: 50px;
+    font-size: 30;
  }
  .startBtn{
    width: 170px;
@@ -149,7 +163,7 @@
      margin-top: 7px;  
  }
  .checkAnswer:hover{
-    background-color:var(--color-2);
+    background-color:var(--color-1);
     color: var(--color-3);
  }
 
