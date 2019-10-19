@@ -27,8 +27,6 @@
     border-radius: 30px;
  }
  .rect-2{
-    /* text-align: center; */
-    /* display:flex; */
     height:96vh;
     width: 97vw;
     justify-content: center;
@@ -62,8 +60,18 @@
     align-items: center;
     
  }
- .username,.password{
-    height:10vh;
+ .user,.pwd{
+   height:8vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+ }
+ .authusername,.authpassword{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    border-color: var(--color-1);
  }
  #mail{
     border-radius: 13px;
