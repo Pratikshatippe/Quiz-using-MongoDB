@@ -4,7 +4,7 @@ let arrStore=[];
 let correctAns;
 let answer;
 let main;
-// let usernameStore;
+
 // fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
@@ -49,6 +49,7 @@ $('#submit').click(function(){
 });
 });
 
+ let usernameStore;
 // store email into mongodb database
 $(".loginbtn").click(function() {  
     usernameStore = $(".authusername").val();
@@ -61,15 +62,15 @@ $(".loginbtn").click(function() {
         data:{
             'user':usernameStore 
         },
-        // success:function(data) {
-        //     main = data;
+        //    success:function(data) {
+        //    main = data;
         //     getQues(main);
         // },
 
         error:function(err){
             console.log("Fail");
         }
-    })
+    });
 });
 
 
