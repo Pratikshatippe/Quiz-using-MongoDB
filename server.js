@@ -18,7 +18,7 @@ app.use(cors());
 //     saveUninitialized:false,
 //     resave:false
 // }))
-require('./route')(app, col);
+require('./app/route')(app, col);
 app.listen(port, () => {
 console.log("Port 8100 running on browser...");
 });

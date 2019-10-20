@@ -1,12 +1,10 @@
-// import { getMaxListeners } from "cluster";
-
 let currentQuestion = 0;
 let score = 0;
 let arrStore=[];
 let correctAns;
 let answer;
 let main;
-let usernameStore;
+// let usernameStore;
 // fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
@@ -61,12 +59,12 @@ $(".loginbtn").click(function() {
         dataType: "json",
         url: "http://localhost:8100/api",
         data:{
-            'email':usernameStore 
+            'user':usernameStore 
         },
-        success:function(data) {
-            main = data;
-            getQues(main);
-        },
+        // success:function(data) {
+        //     main = data;
+        //     getQues(main);
+        // },
 
         error:function(err){
             console.log("Fail");

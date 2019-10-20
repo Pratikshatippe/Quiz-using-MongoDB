@@ -1,12 +1,10 @@
 module.exports = (app, col) => {
     app.post("/api", (req, res) => {
-        // console.log('/api');
-        // const note = { email: req.body.email };
-        console.log(req.body);
-        const note=req.body.email;
-        // console.log(email)
-        // console.log(req);
-            col.collection('answer').insertOne(note, function (err, result) {
+        console.log('/api');
+        // const store = { user: req.body.user };
+        console.log(req.user);
+        const store=req.user
+            col.collection('Username').insertOne(store, function (err, result) {
                 console.log("successful");
             if (err) throw err;
             col.close();
