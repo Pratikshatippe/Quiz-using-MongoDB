@@ -54,7 +54,15 @@ $('#submit').click(function(){
 // store email into mongodb database
 $(".loginbtn").click(function() {  
     usernameStore = $(".authusername").val();
+    let validateName = /[A-Za-z0-9_]+/;
+    if(validateName.test(usernameStore)){
+        return usernameStore;
+    }
     passwordStore = $(".authpassword").val();
+    let strongRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20}/;
+    if(strongRegex.test(passwordStore)){
+        return passwordStore;
+    }
     console.log(usernameStore);
     $.ajax({
         type: "POST",
