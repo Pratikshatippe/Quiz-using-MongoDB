@@ -1,9 +1,9 @@
 module.exports = (app, col) => {
     app.post("/api", (req, res) => {
         console.log('/api');
-     //const store = { user: req.body.user };
+     const store =req.body;
      console.log(req);
-        console.log(req.body.title);
+        console.log(req.body);
         
             col.collection('Username').insertOne(store, function (err, result) {
                 console.log("successful");

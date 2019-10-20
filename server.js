@@ -5,6 +5,7 @@ const client = new MongoClient(uri,{ useUnifiedTopology: true }, { useNewUrlPars
 const app = express();
 const port = 8100;
 const cors=require('cors');
+const body = require('body-parser');
 // const session=require('express-session');
 // const passport=require('passport');
 client.connect(err => {
@@ -13,6 +14,7 @@ console.log("connect");
 if (err)
 return console.log(err);
 app.use(cors());
+app.use(body());
 // app.use(session({
 //     secret:'thesecret',
 //     saveUninitialized:false,
