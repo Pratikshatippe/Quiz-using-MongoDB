@@ -50,26 +50,28 @@ $('#submit').click(function(){
 });
 
  let usernameStore;
+ let passwordStore;
 // store email into mongodb database
 $(".loginbtn").click(function() {  
     usernameStore = $(".authusername").val();
-    // let passwordStore = $(".authpassword").val();
+    passwordStore = $(".authpassword").val();
     console.log(usernameStore);
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "http://localhost:8100/api",
         data:{
-            'user':usernameStore 
+            'username':usernameStore,
+            'password':passwordStore 
         },
-        //    success:function(data) {
-        //    main = data;
-        //     getQues(main);
-        // },
+           success:function(data) {
+           main = data;
+            getQues(main);
+        },
 
-        error:function(err){
-            console.log("Fail");
-        }
+        // error:function(err){
+        //     console.log("Fail");
+        // }
     });
 });
 

@@ -1,16 +1,16 @@
 module.exports = (app, col) => {
     app.post("/api", (req, res) => {
         console.log('/api');
-     const store =req.body;
-     console.log(req);
+     const store ={username: req.body.username, password: req.body.password};
+    //  console.log(req);
         console.log(req.body);
         
             col.collection('Username').insertOne(store, function (err, result) {
                 console.log("successful");
             if (err) throw err;
-            col.close();
+            // col.close();
         });
-        res.status(200).send('Bon Jour');
+        res.status(200).send('Document inserted successfully');
     });
 
     app.get("/api", (req, res) => {
