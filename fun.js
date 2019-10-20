@@ -1,9 +1,12 @@
+// import { getMaxListeners } from "cluster";
+
 let currentQuestion = 0;
 let score = 0;
 let arrStore=[];
 let correctAns;
 let answer;
 let main;
+let usernameStore;
 // fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
@@ -49,26 +52,26 @@ $('#submit').click(function(){
 });
 
 // store email into mongodb database
-// $(".topic_submit").click(function() {  
-//     var emailStore = $("#mail").val();
-//     console.log("here");
-//     $.ajax({
-//         type: "POST",
-//         dataType: "text",
-//         url: "http://localhost:8100/",
-//         data:{
-//             'email': emailStore
-//         },
-//         success: function(data){
-//            result=data;
-//            console.log(result);
-//            getQues();
-//            console.log(result[0].question);
-//         },
-//         error:function(err){
-//             console.log(err);
-//         }
-//     });
-// });
+$(".loginbtn").click(function() {  
+    usernameStore = $(".authusername").val();
+    // let passwordStore = $(".authpassword").val();
+    console.log(usernameStore);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "http://localhost:8100/api",
+        data:{
+            'email':usernameStore 
+        },
+        success:function(data) {
+            main = data;
+            getQues(main);
+        },
+
+        error:function(err){
+            console.log("Fail");
+        }
+    })
+});
 
 

@@ -5,19 +5,19 @@ const client = new MongoClient(uri,{ useUnifiedTopology: true }, { useNewUrlPars
 const app = express();
 const port = 8100;
 const cors=require('cors');
-const session=require('express-session');
-const passport=require('passport');
+// const session=require('express-session');
+// const passport=require('passport');
 client.connect(err => {
 const col = client.db("Quiz");
 console.log("connect");
 if (err)
 return console.log(err);
 app.use(cors());
-app.use(session({
-    secret:'thesecret',
-    saveUninitialized:false,
-    resave:false
-}))
+// app.use(session({
+//     secret:'thesecret',
+//     saveUninitialized:false,
+//     resave:false
+// }))
 require('./route')(app, col);
 app.listen(port, () => {
 console.log("Port 8100 running on browser...");
