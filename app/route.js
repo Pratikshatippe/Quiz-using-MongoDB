@@ -19,9 +19,4 @@ module.exports = (app, col) => {
             res.send(document);
           });
     });
-    app.get("/", (req, res)=>{
-        col.collection('Username').findOne({}).toArray(function(err, result){
-            res.send(result);
-        });
-    });
  };

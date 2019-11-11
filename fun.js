@@ -4,7 +4,7 @@ let arrStore=[];
 let correctAns;
 let answer;
 let main;
-let result;
+
 // fetch data from mongodb database
 $(document).ready(function(){
    $.ajax({
@@ -14,15 +14,7 @@ $(document).ready(function(){
        getQues(main);
        $('#next').click(function(){
            getQues(main);
-       });
-    $.ajax({
-        url:'https://quiz-app-js.herokuapp.com/'
-    }).done(function(data){
-        result = data;
-
-        checkUsername(result);
-        // window.location="quiz.html";
-    }); 
+       }); 
 })
 // Display data 
 function getQues(main){
@@ -89,9 +81,7 @@ $(".signupbtn").click(function() {
     });
 }
 });
-
-function checkUsername(result){
-    console.log(result.username);
+$('.loginbtn').click(function(){
     window.location="quiz.html";
-}
+})
 
