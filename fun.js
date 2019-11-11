@@ -74,9 +74,8 @@ $(".signupbtn").click(function() {
             'username':usernameStore,
             'password':passwordStore,
         },
-        success:function(main) {
-            getQues(main);
-            windows.href="/quiz.html";
+        success:function() {
+            window.location="quiz.html";
         }
     });
 }
