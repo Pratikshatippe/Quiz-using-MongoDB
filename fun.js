@@ -52,35 +52,34 @@ $('#submit').click(function(){
  let usernameStore;
  let passwordStore;
 // store email into mongodb database
-$(".loginbtn").click(function() {  
+$(".signupbtn").click(function() {  
     usernameStore = $(".authusername").val();
     let validateName = /[A-Za-z0-9_]+/;
-    if(validateName.test(usernameStore)){
-        return usernameStore;
-    }
     passwordStore = $(".authpassword").val();
     let strongRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20}/;
-    if(strongRegex.test(passwordStore)){
-        return passwordStore;
-    }
+    
     console.log(usernameStore);
+    if(!(passwordStore.match(strongRegex))){
+        alert("Password should contains symbol, letter and number");
+    }
+    else if(usernameStore=="" || passwordStore==""){
+        alert("All fields are required");
+    }
+    else{
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "http://localhost:8100/api",
         data:{
             'username':usernameStore,
-            'password':passwordStore 
+            'password':passwordStore,
         },
-           success:function(data) {
-           main = data;
+        success:function(main) {
             getQues(main);
-        },
-
-        // error:function(err){
-        //     console.log("Fail");
-        // }
+            windows.href="/quiz.html";
+        }
     });
+}
 });
 
 

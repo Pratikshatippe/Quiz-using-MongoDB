@@ -6,11 +6,11 @@ module.exports = (app, col) => {
         console.log(req.body);
         
             col.collection('Username').insertOne(store, function (err, result) {
-                console.log("successful");
+                console.log("Document inserted successfully");
             if (err) throw err;
             // col.close();
         });
-        res.status(200).send('Document inserted successfully');
+        res.status(200).send('successful');
     });
 
     app.get("/api", (req, res) => {
