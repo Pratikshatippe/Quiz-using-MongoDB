@@ -16,7 +16,7 @@ $(document).ready(function(){
            getQues(main);
        });
     $.ajax({
-        url:'https://quiz-app-js.herokuapp.com/username'
+        url:'https://quiz-app-js.herokuapp.com/'
     }).done(function(data){
         result = data;
 
